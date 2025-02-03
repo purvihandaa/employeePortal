@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKRN Employer Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #b22222;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-size: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            padding: 10px;
+        }
+        .tab {
+            margin: 0 15px;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            border-bottom: 3px solid transparent;
+        }
+        .tab:hover, .tab.active {
+            border-bottom: 3px solid #b22222;
+            color: #b22222;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            background: white;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        .content.active {
+            display: block;
+        }
+        .job-posting {
+            background: white;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        .job-posting h3 {
+            margin: 0 0 10px 0;
+        }
+        .job-posting p {
+            margin: 5px 0;
+        }
+        .read-more {
+            color: #b22222;
+            cursor: pointer;
+            font-weight: bold;
+        }
+.content {
+            padding: 20px;
+            background: white;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #b22222;
+            color: white;
+        }
+        .move-button, .send-email, .block-candidate, .send-test, .send-invite {
+            color: white;
+            background-color: #b22222;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .block-candidate {
+            background-color: #555;
+        }
+.content {
+            padding: 20px;
+            background: white;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #b22222;
+            color: white;
+        }
+        .pay-now {
+            color: white;
+            background-color: #b22222;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .filters {
+            margin-bottom: 15px;
+        }
+        canvas {
+            width: 100% !important;
+            max-height: 400px;
+            margin-bottom: 20px;
+        }
+ .rating {
+            color: gold;
+            font-size: 18px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="navbar">HKRN Employer Portal</div>
+    <div class="tabs">
+        <div class="tab active" onclick="showContent('jobPostings')">Job Postings</div>
+        <div class="tab" onclick="showContent('applications')">Applications</div>
+        <div class="tab" onclick="showContent('payments')">Payments</div>
+    </div>
+    
+    <div id="jobPostings" class="content active">
+        <h2>Job Postings</h2>
+        <div class="job-posting">
+            <h3>Software Developer (Contract)</h3>
+            <p><strong>Main Work:</strong> Develop and maintain web applications.</p>
+            <p><strong>Duration:</strong> 6 months</p>
+            <p><strong>Dates:</strong> March 2025 - August 2025</p>
+            <p><strong>Compensation:</strong> ₹5000 per month</p>
+            <p><strong>Requirements:</strong> Proficient in JavaScript, React, and Node.js.</p>
+            <p class="read-more">Read More</p>
+        </div>
+        <div class="job-posting">
+            <h3>Graphic Designer (Freelance)</h3>
+            <p><strong>Main Work:</strong> Create graphics and branding materials.</p>
+            <p><strong>Duration:</strong> 3 months</p>
+            <p><strong>Dates:</strong> April 2025 - June 2025</p>
+            <p><strong>Compensation:</strong> ₹3000 per month</p>
+            <p><strong>Requirements:</strong> Experience with Photoshop, Illustrator, and Figma.</p>
+            <p class="read-more">Read More</p>
+        </div>
+        <div class="job-posting">
+            <h3>Content Writer (Remote)</h3>
+            <p><strong>Main Work:</strong> Write blogs and marketing content.</p>
+            <p><strong>Duration:</strong> 4 months</p>
+            <p><strong>Dates:</strong> May 2025 - September 2025</p>
+            <p><strong>Compensation:</strong> ₹2500 per month</p>
+            <p><strong>Requirements:</strong> Excellent English writing and SEO skills.</p>
+            <p class="read-more">Read More</p>
+        </div>
+    </div>
+    
+    <div id="applications" class="content">
+                <h2>Pending Applications</h2>
+        <table>
+            <tr>
+                <th>Applicant Name</th>
+                <th>Profile</th>
+                <th>Contact Info</th>
+                <th>Residence State</th>
+                <th>Qualifications</th>
+                <th>Skills</th>
+                <th>Action</th>
+            </tr>
+            <tr><td>Ravi Prakash</td><td>Software Developer</td><td>1234567890, ravi@example.com</td><td>Faridabad</td><td>BSc CS</td><td>JavaScript, React</td><td><button class="move-button">Move to Aptitude</button></td></tr>
+        </table>
+        
+        <h2>Shortlisted for Aptitude</h2>
+        <table>
+            <tr>
+                <th>Applicant Name</th>
+                <th>Profile</th>
+                <th>Contact Info</th>
+                <th>Residence State</th>
+                <th>Qualifications</th>
+                <th>Skills</th>
+                <th>Marks</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            <tr><td>Rani Jain</td><td>Graphic Designer</td><td>9876543210, rani@example.com</td><td>Jind</td><td>BA Design</td><td>Photoshop, Illustrator</td><td>85</td><td>10-Feb-2025</td><td><button class="send-test">Send Test</button> <button class="move-button">Move to PI</button></td></tr>
+        </table>
+        
+        <h2>Shortlisted for PI</h2>
+        <table>
+            <tr>
+                <th>Applicant Name</th>
+                <th>Profile</th>
+                <th>Contact Info</th>
+                <th>Residence State</th>
+                <th>Qualifications</th>
+                <th>Skills</th>
+                <th>Remarks</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+            <tr><td>Baldev Singh</td><td>Content Writer</td><td>5556667777, baldev@example.com</td><td>Hisar</td><td>BA English</td><td>SEO, Blogging</td><td>Strong communication skills</td><td>15-Feb-2025</td><td><button class="send-invite">Send Invite</button> <button class="move-button">Move to Selected</button></td></tr>
+        </table>
+        
+        <h2>Final Selected Candidates</h2>
+        <table>
+            <tr>
+                <th>Applicant Name</th>
+                <th>Profile</th>
+                <th>Contact Info</th>
+                <th>Residence State</th>
+                <th>Qualifications</th>
+                <th>Skills</th>
+                <th>Negotiated Compensation</th>
+                <th>Action</th>
+            </tr>
+            <tr><td>Vinayak Yadav</td><td>Marketing Specialist</td><td>2223334444, vinayak@example.com</td><td>Ambala</td><td>MBA Marketing</td><td>SEO, PPC</td><td>₹5000/month</td><td><button class="send-email">Send Offer</button></td></tr>
+        </table>
+        
+        <h2>Final Rejected Candidates</h2>
+        <table>
+            <tr>
+                <th>Applicant Name</th>
+                <th>Profile</th>
+                <th>Contact Info</th>
+                <th>Residence State</th>
+                <th>Qualifications</th>
+                <th>Skills</th>
+                <th>Remarks</th>
+                <th>Action</th>
+            </tr>
+            <tr><td>Naina Kaur</td><td>Data Analyst</td><td>4445556666, naina@example.com</td><td>Faridabad</td><td>MSc Statistics</td><td>Python, SQL</td><td>Did not meet technical expectations</td><td><button class="block-candidate">Block</button></td></tr>
+        </table>
+    </div>
+    
+    <div id="payments" class="content">
+                        <h2>Payments</h2>
+        
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Profile</th>
+                <th>Contact Info</th>
+                <th>Residence State</th>
+                <th>Account Number</th>
+                <th>Amount Due</th>
+                <th>Rating</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>Ravi Prakash</td>
+                <td>Software Developer</td>
+                <td>1234567890, ravi@example.com</td>
+                <td>Jind</td>
+                <td>123456789</td>
+                <td>₹5000</td>
+                <td class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                <td><button class="pay-now">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Rani Jain</td>
+                <td>Graphic Designer</td>
+                <td>9876543210, rani@example.com</td>
+                <td>Hisar</td>
+                <td>987654321</td>
+                <td>₹3000</td>
+                <td class="rating">&#9733;&#9733;&#9733;&#9734;&#9734;</td>
+                <td><button class="pay-now">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Baldev Singh</td>
+                <td>Data Analyst</td>
+                <td>5556667777, baldev@example.com</td>
+                <td>Bhiwani</td>
+                <td>555888999</td>
+                <td>₹4000</td>
+                <td class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</td>
+                <td><button class="pay-now">Pay Now</button></td>
+            </tr>
+            <tr>
+                <td>Vinayak Yadav</td>
+                <td>Marketing Specialist</td>
+                <td>4445556666, vinayak@example.com</td>
+                <td>Ambala</td>
+                <td>444777888</td>
+                <td>₹4500</td>
+                <td class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</td>
+                <td><button class="pay-now">Pay Now</button></td>
+            </tr>
+        </table>
+    </div>
+    
+    <script>
+        function showContent(tabId) {
+            document.querySelectorAll('.content').forEach(div => {
+                div.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+    </div>
+    
+    <script>
+        function showContent(tabId) {
+            document.querySelectorAll('.content').forEach(div => {
+                div.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
